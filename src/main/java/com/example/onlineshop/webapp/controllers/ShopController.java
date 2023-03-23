@@ -30,6 +30,11 @@ public class ShopController {
         this.notificationService = notificationService;
     }
 
+    @GetMapping("/login")
+    public String login(){
+        return "login";
+    }
+
     @GetMapping("/register")
     public String showRegisterPage(Model model) {
         model.addAttribute("user", new User());
@@ -42,10 +47,10 @@ public class ShopController {
         return "redirect:/login";
     }
     // Пользователь может посмотреть все товары
-    @GetMapping("/product")
+    @GetMapping("/")
     public String showShopPage(Model model) {
-        List<Product> products = productService.getAll();
-        model.addAttribute("products", products);
+        model.addAttribute("userList", userService.getAllUsers());
+        model.addAttribute("productList",productService.getAll());
         return "shop";
     }
     // Пользователь может посмотреть конкретный товар

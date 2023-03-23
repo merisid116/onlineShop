@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Online Shop</title>
+</head>
+<body>
+<h1>Online Shop</h1><hr>
+<h3>Вход в личный кабинет</h3>
+<br>
+<form action="/login" method="post">
+    Email: <input type="email" name ="username"> <br><br>
+    Пароль: <input type="password" name="password"> <br><br>
+    <input type="hidden" name="_csrf" value="${_csrf.token}">
+    <input type="submit" value="Вход"/>
+</form>
+<br>
+<br>
+<a href="/register">Зарегистрироваться</a>
+</body>
+</html>
