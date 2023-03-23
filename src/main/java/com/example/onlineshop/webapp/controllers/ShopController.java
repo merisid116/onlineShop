@@ -30,22 +30,7 @@ public class ShopController {
         this.notificationService = notificationService;
     }
 
-    @GetMapping("/login")
-    public String login(){
-        return "login";
-    }
 
-    @GetMapping("/register")
-    public String showRegisterPage(Model model) {
-        model.addAttribute("user", new User());
-        return "register";
-    }
-    // Пользователь может зарегистрироваться
-    @PostMapping("/register")
-    public String registerUser(@ModelAttribute("user") User user) {
-        userService.create(user.getUsername(), user.getEmail(), user.getPassword());
-        return "redirect:/login";
-    }
     // Пользователь может посмотреть все товары
     @GetMapping("/")
     public String showShopPage(Model model) {
